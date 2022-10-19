@@ -1,0 +1,7 @@
+*.exe
+*.o
+*.obj
+*.all
+*.lib
+*.class
+*.jar
