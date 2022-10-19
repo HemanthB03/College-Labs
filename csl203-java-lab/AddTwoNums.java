@@ -7,5 +7,6 @@ public class AddTwoNums {
         int a=sc.nextInt();
         int b=sc.nextInt();
         System.out.println(a+"+"+b+"="+(a+b));
+        sc.close();
     }
 }
