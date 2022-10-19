@@ -29,7 +29,7 @@ int main() {
 		printf("%d found at position %d (index==%d)\n", search, pos, i);
 	}
 	else {
-		printf("%d not found in array\n", search);
+		printf("%d is not found in array\n", search);
 	}
 
 	return 0;
