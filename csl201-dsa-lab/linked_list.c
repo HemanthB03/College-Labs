@@ -133,8 +133,8 @@ void deleteEnd() {
             prev=current;
             current=current->link;
         }
-        free((void*)prev->link);
         prev->link=NULL;
+		free((void*)current);
     }
     
 }
@@ -156,8 +156,8 @@ void deleteKey() {
             printf("Element not found\n");
         }
         else {
-            free((void*)prev->link);
             prev->link=current->link;
+			free((void*)current);
         }
     }
 }
