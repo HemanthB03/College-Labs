@@ -76,6 +76,8 @@ void insertFront() {
     temp->data=data;
     temp->link=head;
     head=temp;
+
+    display();
 }
 
 void insertEnd() {
@@ -89,6 +91,8 @@ void insertEnd() {
     temp->data=data;
     ptr->link=temp;
     temp->link=NULL;
+
+    display();
 }
 
 void insertAt() {
@@ -109,6 +113,8 @@ void insertAt() {
         temp->link=ptr->link;
         ptr->link=temp;
     }
+
+    display();
 }
 
 void deleteFront() {
@@ -120,6 +126,8 @@ void deleteFront() {
         head=head->link;
         free((void*)prev);
     }
+
+    display();
 }
 
 void deleteEnd() {
@@ -136,7 +144,8 @@ void deleteEnd() {
         prev->link=NULL;
 		free((void*)current);
     }
-    
+
+    display();
 }
 
 void deleteKey() {
@@ -160,6 +169,8 @@ void deleteKey() {
 			free((void*)current);
         }
     }
+
+    display();
 }
 
 void display() {
