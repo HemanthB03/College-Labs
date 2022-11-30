@@ -38,7 +38,7 @@ int main() {
 
 	}
 
-	printf("P(x) = ");
+	printf("\nP(x) = ");
 	display(PHead);
 
 	printf("enter degree of second polynomial: ");
@@ -64,7 +64,7 @@ int main() {
 
 	}
 
-	printf("Q(x) = ");
+	printf("\nQ(x) = ");
 	display(QHead);
 
 	Pptr = PHead;
@@ -141,7 +141,7 @@ int main() {
 
 	}
 
-	printf("Resultant polynomial: \nR(x) = ");
+	printf("\nResultant polynomial: \nR(x) = ");
 	display(RHead);
 
 	return 0;
