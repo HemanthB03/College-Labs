@@ -1,3 +1,2 @@
-hello world
-today is a beautiful day
-i don't hate java anymore
+hello world.
+today is a beautiful day.
