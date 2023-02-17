@@ -23,6 +23,6 @@ public class PrimeOrNot {
                 System.out.println("Is prime");
             }
         }
-        sc.close();//not needed in lab, this is to stop warning in my system
+        sc.close();
     }
 }
