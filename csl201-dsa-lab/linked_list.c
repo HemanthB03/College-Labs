@@ -43,6 +43,7 @@ int main() {
                 break;
             case 3:
                 insertAt();
+				break;
             case 4:
                 deleteFront();
                 break;
