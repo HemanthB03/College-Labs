@@ -38,7 +38,7 @@ class Manager extends Employee {
     }
 }
 
-public class Inheritance {
+public class Inheritance1 {
     public static void main(String[] args) {
         Officer officer=new Officer("Bob", 54, 1234212, 20000.0, "Bobvile, Street 3", "Officer of Cleaning");
         Manager manager=new Manager("Jeff", 32, 9242823, 5000000.0, "Jeffrey Town", "Department of Human Resources");
