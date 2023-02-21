@@ -14,11 +14,11 @@ public class BinarySearch {
         System.out.print("Enter the key: ");
         int key=sc.nextInt();
 
-        int first=0, last=n-1; 
-        while(first<last) {
-            int mid=(first+last)/2;
+        int first=0, last=n-1, flag=0, mid=-1; 
+        while(first<=last) {
+            mid=(first+last)/2;
             if(arr[mid]==key) {
-                System.out.println("Key found at index "+mid);
+                flag=1;
                 break;
             }
             else if(arr[mid]<key) {
@@ -28,6 +28,12 @@ public class BinarySearch {
                 last=mid-1;
             }
         }
-        System.out.println("Key not found");
+        if(flag==0) {
+            System.out.println("Key not found");
+        }
+        else {
+            System.out.println("Key found at index "+mid);
+        }
+        sc.close();
     }
 }
