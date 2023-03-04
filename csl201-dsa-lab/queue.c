@@ -57,6 +57,7 @@ void enqueue() {
         rear++;
         queue[rear]=data;
     }
+    display();
 }
 
 void dequeue() {
@@ -67,6 +68,7 @@ void dequeue() {
         printf("%d was deleted\n", queue[front]);
         front++;
     }
+    display();
 }
 
 void display() {
