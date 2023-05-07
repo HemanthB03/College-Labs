@@ -1,2 +1,2 @@
-gcc $1.c -o$1.out
+gcc -g $1.c -o$1.out -std=c99 -Wall
 ./$1.out
