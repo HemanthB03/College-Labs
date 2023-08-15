@@ -1,4 +1,4 @@
-#INFO
+# INFO
 
 Files that end with .sh are linux shell scripts. You will need to run them on a terminal on linux or use an emulator like msys2 or cygwin on window.<br>
 
