@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
 int main(void) {
   int ioq[20], i, n, ihead, tot;
