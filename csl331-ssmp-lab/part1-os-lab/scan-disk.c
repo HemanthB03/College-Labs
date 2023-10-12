@@ -55,7 +55,7 @@ int main(void) {
     ioq[i]=ioq1[j];
   }
 
-  ioq[i]=cylinders;
+  ioq[i]=cylinders-1;
 
   for(i=tempInd1+2, j=0; j<tempInd2; i++, j++) {
     ioq[i]=ioq2[j];
