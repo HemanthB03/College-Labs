@@ -71,7 +71,7 @@ int main(void) {
    	}
 }
 	
-	printf("\n\nTotal Page Faults = %d", faults);
+	printf("\nTotal Page Faults using LRU are %d\n", faults);
     
   return 0;
 }

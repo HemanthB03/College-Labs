@@ -53,7 +53,7 @@ int main(void) {
     }
   }
   
-  printf("\nTotal number of page faults = %d\n", pageFaults);
+  printf("\nTotal Page Faults using LFU are %d\n", pageFaults);
 
   return 0;
 }
