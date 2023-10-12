@@ -63,6 +63,11 @@ int main(void) {
   }
   ioq[0]=ihead;
 
+  printf("\nThe order of request served is: \n");
+  for(i=0; i<=n; i++) {
+    printf("%d-->", ioq[i]);
+  }
+  
   printf("\nStart\tEnd\tNo: of head movements");
   for(i=0; i<=n; i++) {
     diff=abs(ioq[i+1]-ioq[i]);
