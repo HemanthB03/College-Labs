@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(void) {
-  int i, j, temp, tempInd1, tempInd2;
+  int i, j, temp, tempInd1=0, tempInd2=0;
   int n, ihead, cylinders, diff;
   int ioq[20], ioq1[20], ioq2[20];
   float seek=0, avgs;
