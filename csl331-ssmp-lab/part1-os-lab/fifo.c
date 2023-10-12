@@ -37,6 +37,6 @@ int main(void) {
       count=0;
     }
   }
-  printf("The no of page faults using FIFO are %d", pf);
+  printf("\nThe no of page faults using FIFO are %d\n", pf);
   return 0;
 }
