@@ -6,7 +6,7 @@ int main(void) {
   float seek=0, avgs;
 
   printf("FCFS Disk Schedulinng\n");
-  printf("Enter the no of request: ");
+  printf("Enter the no of requests: ");
   scanf("%d", &n);
   printf("Enter the initial head position: ");
   scanf("%d", &ihead);
@@ -31,8 +31,8 @@ int main(void) {
   }
 
   avgs=seek/n;
-  printf("\nTotal seek operations\t: %.2f\n", seek);
-  printf("Average seek operations\t: %.2f\n", avgs);
+  printf("\nTotal seek time\t: %.2f\n", seek);
+  printf("Average seek time\t: %.2f\n", avgs);
 
   return 0;
 }
