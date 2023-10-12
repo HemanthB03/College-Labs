@@ -15,26 +15,26 @@ int findLRU(int time[], int n) {
 int main(void) {
   int no_of_frames, no_of_pages, frames[10], pages[30], counter = 0;
   int time[10], flag1, flag2, i, j, pos, faults = 0;
-	
-	printf("Enter length of reference string: ");
-	scanf("%d", &no_of_pages);
-	
-	printf("Enter reference string: ");
+  
+  printf("Enter length of reference string: ");
+  scanf("%d", &no_of_pages);
+  
+  printf("Enter reference string: ");
   for(i = 0; i<no_of_pages; ++i){
     scanf("%d", &pages[i]);
   }
 
   printf("Enter number of frames: ");
-	scanf("%d", &no_of_frames);
+  scanf("%d", &no_of_frames);
     
-	for(i = 0; i<no_of_frames; ++i){
+  for(i = 0; i<no_of_frames; ++i) {
     frames[i] = -1;
   }
     
-  for(i = 0; i<no_of_pages; ++i){
+  for(i = 0; i<no_of_pages; ++i) {
     flag1 = flag2 = 0;
     
-    for(j = 0; j<no_of_frames; ++j){
+    for(j = 0; j<no_of_frames; ++j) {
       if(frames[j] == pages[i]){
         counter++;
         time[j] = counter;
@@ -42,9 +42,9 @@ int main(void) {
         break;
       }
     }
-    	
+      
     if(flag1 == 0){
-      for(j = 0; j<no_of_frames; ++j){
+      for(j = 0; j<no_of_frames; ++j) {
         if(frames[j] == -1){
           counter++;
           faults++;
@@ -53,9 +53,9 @@ int main(void) {
           flag2 = 1;
           break;
         }
-      }	
+      }  
     }
-    	
+      
     if(flag2 == 0){
       pos = findLRU(time, no_of_frames);
       counter++;
@@ -63,15 +63,15 @@ int main(void) {
       frames[pos] = pages[i];
       time[pos] = counter;
     }
-    	
+      
     printf("\n");
-    	
-  	for(j = 0; j<no_of_frames; ++j){
-  		printf("%d\t", frames[j]);
-   	}
-}
-	
-	printf("\nTotal Page Faults using LRU are %d\n", faults);
+      
+    for(j = 0; j<no_of_frames; ++j) {
+      printf("%d\t", frames[j]);
+     }
+  }
+  
+  printf("\nTotal Page Faults using LRU are %d\n", faults);
     
   return 0;
 }
