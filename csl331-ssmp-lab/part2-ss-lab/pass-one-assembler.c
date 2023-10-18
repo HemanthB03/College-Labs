@@ -23,7 +23,8 @@ int main(void) {
       if (strcmp(opcode, "START") == 0) {
         fprintf(outFile, "%s %s %s", label, opcode, operand);
         locctr = atoi(operand);
-      } else {
+      }
+      else {
         rewind(optabFile);
         flag = 0;
         while (fscanf(optabFile, "%s%s", opcode1, operand1) != EOF) {
