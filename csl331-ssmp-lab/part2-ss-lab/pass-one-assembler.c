@@ -57,7 +57,7 @@ int main(void) {
       else if (strcmp(opcode, "RESB") == 0) {
         fprintf(outFile, "\n%d\t%s\t%s\t%s", locctr, label, opcode, operand);
         fprintf(symFile, "\n%d\t%s", locctr, label);
-        locctr += 1;
+        locctr += atoi(operand);
       }
       else {
         fprintf(outFile, "\n%d\t%s\t%s\t%s", locctr, label, opcode, operand);
