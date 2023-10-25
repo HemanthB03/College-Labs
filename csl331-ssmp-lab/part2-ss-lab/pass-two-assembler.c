@@ -55,7 +55,8 @@ int main(void) {
           character = operand[2];
           sprintf(add, "%d", character);
           strcpy(objectcode, add);
-        } else {
+        }
+        else {
           strcpy(objectcode, add);
         }
     } 
