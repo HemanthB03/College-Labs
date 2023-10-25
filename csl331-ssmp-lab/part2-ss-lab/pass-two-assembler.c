@@ -28,20 +28,18 @@ int main(void) {
 
     while (strcmp(opcode, "END") != 0) {
         flag = 0;
-        fscanf(optabFile, "%s%s", code, mnemonic);
-        while (strcmp(code, "END") != 0) {
+        rewind(optabFile);
+        while (fscanf(optabFile, "%s\t%s", code, mnemonic) != EOF) {
             if ((strcmp(opcode, code) == 0) && (strcmp(mnemonic, "*") != 0)) {
                 flag = 1;
                 break;
             }
-            fscanf(optabFile, "%s\t%s", code, mnemonic);
         }
 
         if (flag == 1) {
             flag1 = 0;
             rewind(symtabFile);
-            while (!feof(symtabFile)) {
-                fscanf(symtabFile, "%s\t%d", symbol, &loc);
+            while (fscanf(symtabFile, "%s\t%d", symbol, &loc) != EOF) {
                 if (strcmp(symbol, operand) == 0) {
                     flag1 = 1;
                     break;
@@ -68,6 +66,7 @@ int main(void) {
         fscanf(passOneOut, "%d\t%s\t%s\t%s", &locctr, label, opcode, operand);
     }
     fprintf(passTwoOut, "%s\t%s\t%s\t%d\n", label, opcode, operand, locctr);
+
 
     fclose(passOneOut);
     fclose(passTwoOut);
