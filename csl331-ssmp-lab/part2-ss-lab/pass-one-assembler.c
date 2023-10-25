@@ -67,6 +67,8 @@ int main(void) {
     }
   }
 
+  fprintf(outFile, "\n%d\t%s\t%s\t%s", locctr, label, opcode, operand);
+
   fclose(inFile);
   fclose(optabFile);
   fclose(outFile);
