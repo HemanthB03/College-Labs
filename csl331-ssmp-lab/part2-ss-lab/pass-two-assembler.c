@@ -51,14 +51,14 @@ int main(void) {
       }
     } 
     else if (strcmp(opcode, "BYTE") == 0 || strcmp(opcode, "WORD") == 0) {
-        if ((operand[0] == 'C') || (operand[0] == 'X')) {
-          character = operand[2];
-          sprintf(add, "%d", character);
-          strcpy(objectcode, add);
-        }
-        else {
-          strcpy(objectcode, add);
-        }
+      if ((operand[0] == 'C') || (operand[0] == 'X')) {
+        character = operand[2];
+        sprintf(add, "%d", character);
+        strcpy(objectcode, add);
+      }
+      else {
+        strcpy(objectcode, add);
+      }
     } 
     else {
       strcpy(objectcode, "\0");
