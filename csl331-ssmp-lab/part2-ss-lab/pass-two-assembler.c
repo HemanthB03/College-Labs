@@ -30,7 +30,7 @@ int main(void) {
     flag = 0;
     rewind(optabFile);
     while (fscanf(optabFile, "%s\t%s", code, mnemonic) != EOF) {
-      if ((strcmp(opcode, code) == 0) && (strcmp(mnemonic, "*") != 0)) {
+      if ((strcmp(opcode, code) == 0) && (strcmp(mnemonic, "**") != 0)) {
         flag = 1;
         break;
       }
@@ -39,7 +39,7 @@ int main(void) {
     if (flag == 1) {
       flag1 = 0;
       rewind(symtabFile);
-      while (fscanf(symtabFile, "%s\t%d", symbol, &loc) != EOF) {
+      while (fscanf(symtabFile, "%d\t%s", &loc, symbol) != EOF) {
         if (strcmp(symbol, operand) == 0) {
           flag1 = 1;
           break;
