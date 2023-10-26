@@ -8,21 +8,26 @@ int main(void) {
   char opcode[20], operand[20], symbol[20], label[20], code[20];
   char mnemonic[25], character, add[20], objectcode[20];
   int flag, flag1, locctr, loc;
+  int startAddress=0, pgmLen=0, textRecLen=0;
+  char pgmName[20], textRecord[100], temp1[20], temp2[100];
 
-  memset(label, 0, sizeof(label));
-  memset(opcode, 0, sizeof(opcode));
-  memset(operand, 0, sizeof(operand));
-  memset(add, 0, sizeof(add));
+  memset(pgmName, 0, sizeof(pgmName));
+  memset(textRecord, 0, sizeof(textRecord));
+  memset(temp2, 0, sizeof(temp2));
 
-  FILE *passOneOut, *optabFile, *symtabFile, *assemblyListing;
+  FILE *passOneOut, *optabFile, *symtabFile, *assemblyListing, *objPgmFile;
   passOneOut = fopen("out1.txt", "r");
   optabFile = fopen("opcode.txt", "r");
   symtabFile = fopen("sym1.txt", "r");
   assemblyListing = fopen("assemblyListing.txt", "w");
+  objPgmFile = fopen("objectcode.txt", "w");
 
   fscanf(passOneOut, "%s\t%s\t%s", label, opcode, operand);
   if (strcmp(opcode, "START") == 0) {
     fprintf(assemblyListing, "%s\t%s\t%s\n", label, opcode, operand);
+    startAddress=atoi(operand);
+    sprintf(textRecord, "T^%6d", startAddress);
+
     fscanf(passOneOut, "%d\t%s\t%s\t%s", &locctr, label, opcode, operand);
   }
 
@@ -66,14 +71,27 @@ int main(void) {
 
     if (strcmp(label, "**") == 0) {
       fprintf(assemblyListing, "%d\t%s\t%s\t%s\t%s\n", locctr, label, opcode, operand, objectcode);
+      textRecLen+=strlen(objectcode);
+      strcat(temp2, "^");
+      strcat(temp2, objectcode);
     }
     fscanf(passOneOut, "%d\t%s\t%s\t%s", &locctr, label, opcode, operand);
   }
+
+  pgmLen=locctr-startAddress;
+  sprintf(temp1, "^%2d", textRecLen/2);
+  strcat(textRecord, temp1);
+  strcat(textRecord, temp2);
+  
+  fprintf(objPgmFile, "H^%6s^%6d^%6d\n", pgmName, startAddress, pgmLen);
+  fprintf(objPgmFile, "%s\n", textRecord);
+  fprintf(objPgmFile, "E^%6d\n", startAddress);
 
   fclose(passOneOut);
   fclose(optabFile);
   fclose(symtabFile);
   fclose(assemblyListing);
+  fclose(objPgmFile);
 
   return 0;
 }
