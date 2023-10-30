@@ -1,0 +1,169 @@
+SQL> select abs(-100) from dual;
+
+ ABS(-100)
+----------
+       100
+
+SQL> select floor(2345.98) from dual;
+
+FLOOR(2345.98)
+--------------
+          2345
+
+SQL> select greatest(23, 57, 85, 90, 123, 78, 15) from dual;
+
+GREATEST(23,57,85,90,123,78,15)
+-------------------------------
+                            123
+
+SQL> select least(34, 21, 67, 11, 89, 5, 9) from dual;
+
+LEAST(34,21,67,11,89,5,9)
+-------------------------
+                        5
+
+SQL> select length('Hemanth') from dual;
+
+LENGTH('HEMANTH')
+-----------------
+                7
+
+SQL> select sqrt(36) from dual;
+
+  SQRT(36)
+----------
+         6
+
+SQL> select power(2, 5) from dual;
+
+POWER(2,5)
+----------
+        32
+
+SQL> select round(8.96) from dual;
+
+ROUND(8.96)
+-----------
+          9
+
+SQL> select sin(90) from dual;
+
+   SIN(90)
+----------
+.893996664
+
+SQL> select cos(45) from dual;
+
+   COS(45)
+----------
+.525321989
+
+SQL> select tan(30) from dual;
+
+   TAN(30)
+----------
+-6.4053312
+
+SQL> select ln(100) from dual;
+
+   LN(100)
+----------
+4.60517019
+
+SQL> select ln(10) from dual;
+
+    LN(10)
+----------
+2.30258509
+
+SQL> select log(10, 100) from dual;
+
+LOG(10,100)
+-----------
+          2
+
+SQL> select log(2, 8) from dual;
+
+  LOG(2,8)
+----------
+         3
+
+SQL> select mod(11, 3) from dual;
+
+ MOD(11,3)
+----------
+         2
+
+SQL> select exp(2) from dual;
+
+    EXP(2)
+----------
+ 7.3890561
+
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+30-OCT-23
+
+SQL> select extract(day from sysdate) from dual;
+
+EXTRACT(DAYFROMSYSDATE)
+-----------------------
+                     30
+
+SQL> select extract(month from sysdate) from dual;
+
+EXTRACT(MONTHFROMSYSDATE)
+-------------------------
+                       10
+
+SQL> select ascii('a') from dual;
+
+ASCII('A')
+----------
+        97
+
+SQL> select ascii('A') from dual;
+
+ASCII('A')
+----------
+        65
+
+SQL> select ascii('t') from dual;
+
+ASCII('T')
+----------
+       116
+
+SQL> select upper('welcome to dbms lab') from dual;
+
+UPPER('WELCOMETODBM
+-------------------
+WELCOME TO DBMS LAB
+
+SQL> select lower('WELCOME TO DBMS LAB') from dual;
+
+LOWER('WELCOMETODBM
+-------------------
+welcome to dbms lab
+
+SQL> select replace('Hello', 'H', 'M') from dual;
+
+REPLA
+-----
+Mello
+
+SQL> select ltrim('Welcome', 'W') from dual;
+
+LTRIM(
+------
+elcome
+
+SQL> select rtrim('Welcome', 'e') from dual;
+
+RTRIM(
+------
+Welcom
+
+SQL>
