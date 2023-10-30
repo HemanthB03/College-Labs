@@ -1,0 +1,144 @@
+SQL> CREATE TABLE STUDFOO(ID INT, NAME VARCHAR(20), ADDRESS VARCHAR(75), MARK INT);
+
+Table created.
+
+SQL> DESC STUDFOO;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(75)
+ MARK                                               NUMBER(38)
+
+SQL> ALTER TABLE STUDFOO MODIFY MARK DECIMAL(18, 4);
+
+Table altered.
+
+SQL> DESC STUDFOO
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(75)
+ MARK                                               NUMBER(18,4)
+
+SQL> ALTER TABLE STUDFOO RENAME COLUMN NAME TO STUDNAME;
+
+Table altered.
+
+SQL> DESC STUDFOO
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ STUDNAME                                           VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(75)
+ MARK                                               NUMBER(18,4)
+
+SQL> ALTER TABLE STUDFOO ADD SEX CHAR(1);
+
+Table altered.
+
+SQL> DESC STUDFOO
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ STUDNAME                                           VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(75)
+ MARK                                               NUMBER(18,4)
+ SEX                                                CHAR(1)
+
+SQL> ALTER TABLE STUDFOO DROP COLUMN SEX;
+
+Table altered.
+
+SQL> DESC STUDFOO
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ STUDNAME                                           VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(75)
+ MARK                                               NUMBER(18,4)
+
+SQL> ALTER TABLE STUDFOO ADD SEX CHAR(1);
+
+Table altered.
+
+SQL> DESC STUDFOO
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ STUDNAME                                           VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(75)
+ MARK                                               NUMBER(18,4)
+ SEX                                                CHAR(1)
+
+SQL> INSERT INTO STUDFOO VALUES(1, 'stud1', 'addr1', 20.0, 'M');
+
+1 row created.
+
+SQL> INSERT INTO STUDFOO VALUES(2, 'stud2', 'addr2', 40.0, 'M');
+
+1 row created.
+
+SQL> INSERT INTO STUDFOO VALUES(3, 'stud3', 'addr3', 30.0, 'M');
+
+1 row created.
+
+SQL> INSERT INTO STUDFOO VALUES(4, 'stud4', 'addr4', 35.0, 'M');
+
+1 row created.
+
+SQL> INSERT INTO STUDFOO VALUES(5, 'stud5', 'addr5', 100.0, 'F');
+
+1 row created.
+
+SQL> SELECT * FROM STUDFOO;
+
+        ID STUDNAME
+---------- --------------------
+ADDRESS
+---------------------------------------------------------------------------
+      MARK S
+---------- -
+         1 stud1
+addr1
+        20 M
+
+         2 stud2
+addr2
+        40 M
+
+        ID STUDNAME
+---------- --------------------
+ADDRESS
+---------------------------------------------------------------------------
+      MARK S
+---------- -
+
+         3 stud3
+addr3
+        30 M
+
+         4 stud4
+addr4
+
+        ID STUDNAME
+---------- --------------------
+ADDRESS
+---------------------------------------------------------------------------
+      MARK S
+---------- -
+        35 M
+
+         5 stud5
+addr5
+       100 F
+
+
+SQL> DROP TABLE STUDFOO;
+
+Table dropped.
+
+SQL> DESC STUDFOO
+ERROR:
+ORA-04043: object STUDFOO does not exist

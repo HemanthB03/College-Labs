@@ -1,0 +1,175 @@
+SQL> INSERT INTO FACULTYS VALUES('F1', 'JOHN', 'ADDR1', 'KOLLAM');
+
+1 row created.
+
+SQL> INSERT INTO FACULTYS VALUES('F2', 'BOB', 'ADDR2', 'TRIVANDRUM');
+
+1 row created.
+
+SQL> INSERT INTO FACULTYS VALUES('F3', 'JEFF', 'ADDR3', 'KOLLAM');
+
+1 row created.
+
+SQL> INSERT INTO FACULTYS VALUES('F4', 'JACOB', 'ADDR4', 'KOLLAM');
+
+1 row created.
+
+SQL> INSERT INTO FACULTYS VALUES('F5', 'NAME5', 'ADDR5', 'KOLLAM');
+
+SQL> SELECT * FROM FACULTYS;
+
+FACULTY_ID           FACULTY_NAME
+-------------------- --------------------
+ADDRESS
+--------------------------------------------------
+DISTRICT
+--------------------------------------------------
+F1                   JOHN
+ADDR1
+KOLLAM
+
+F2                   BOB
+ADDR2
+TRIVANDRUM
+
+FACULTY_ID           FACULTY_NAME
+-------------------- --------------------
+ADDRESS
+--------------------------------------------------
+DISTRICT
+--------------------------------------------------
+
+F3                   JEFF
+ADDR3
+KOLLAM
+
+F4                   JACOB
+ADDR4
+
+FACULTY_ID           FACULTY_NAME
+-------------------- --------------------
+ADDRESS
+--------------------------------------------------
+DISTRICT
+--------------------------------------------------
+KOLLAM
+
+F5                   NAME5
+ADDR5
+KOLLAM
+
+5 rows selected.
+
+SQL> INSERT INTO INSTITUTION VALUES('INS1', 'KOLLAM');
+
+1 row created.
+
+SQL> INSERT INTO INSTITUTION VALUES('INS2', 'KOLLAM');
+
+1 row created.
+
+SQL> INSERT INTO INSTITUTION VALUES('INS3', 'KOLLAM');
+
+1 row created.
+
+SQL> INSERT INTO INSTITUTION VALUES('INS4', 'KOLLAM');
+
+1 row created.
+
+SQL> INSERT INTO INSTITUTION VALUES('INS5', 'KOLLAM');
+
+1 row created.
+
+SQL> SELECT * FROM INSTITUTION;
+
+INSTNAME             DISTRICTNAME
+-------------------- --------------------
+INS1                 KOLLAM
+INS2                 KOLLAM
+INS3                 KOLLAM
+INS4                 KOLLAM
+INS5                 KOLLAM
+
+5 rows selected.
+
+SQL> INSERT INTO WORKS123 VALUES('F1', 'INS1', 100000);
+
+1 row created.
+
+SQL> INSERT INTO WORKS123 VALUES('F2', 'INS1', 100000);
+
+1 row created.
+
+SQL> INSERT INTO WORKS123 VALUES('F3', 'INS1', 100000);
+
+1 row created.
+
+SQL> INSERT INTO WORKS123 VALUES('F4', 'INS1', 100000);
+
+1 row created.
+
+SQL> INSERT INTO WORKS123 VALUES('F5', 'INS1', 100000);
+
+1 row created.
+
+SQL> SELECT * FROM WORKS123;
+
+FACULTY_ID           INSTITUTION_NAME
+-------------------- --------------------------------------------------
+    SALARY
+----------
+F1                   INS1
+    100000
+
+F2                   INS1
+    100000
+
+F3                   INS1
+    100000
+
+
+FACULTY_ID           INSTITUTION_NAME
+-------------------- --------------------------------------------------
+    SALARY
+----------
+F4                   INS1
+    100000
+
+F5                   INS1
+    100000
+
+5 rows selected.
+
+SQL> INSERT INTO MANAGESS VALUES('F1', 'F5');
+
+1 row created.
+
+SQL> INSERT INTO MANAGESS VALUES('F2', 'F5');
+
+1 row created.
+
+SQL> INSERT INTO MANAGESS VALUES('F3', 'F5');
+
+1 row created.
+
+SQL> INSERT INTO MANAGESS VALUES('F4', 'F5');
+
+1 row created.
+
+SQL> INSERT INTO MANAGESS VALUES('F5', 'F5');
+
+1 row created.
+
+SQL> SELECT * FROM MANAGESS;
+
+FACULTY_ID           MANAGER_ID
+-------------------- --------------------
+F1                   F5
+F2                   F5
+F3                   F5
+F4                   F5
+F5                   F5
+
+10 rows selected.
+
+SQL>

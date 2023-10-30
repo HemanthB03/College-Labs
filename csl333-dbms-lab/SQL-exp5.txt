@@ -1,0 +1,85 @@
+SQL> select faculty_name from facultys, works123 where institution_name='tki' and facultys.faculty_id=works123.faculty_id;
+
+FACULTY_NAME
+--------------------
+john
+adam
+aragorn
+
+SQL> select facultys.faculty_name from facultys, works123, institution where facultys.faculty_id=works123.faculty_id and works123.institution_name=institution.institution_name and facultys.district=institution.district;
+
+FACULTY_NAME
+--------------------
+john
+bob
+jeff
+aragorn
+frodo
+
+SQL> select facultys.faculty_name, f2.faculty_name "manager name" from facultys, facultys f2, managess where facultys.faculty_id=managess.faculty_id and f2.faculty_id=managess.manager_id and facultys.city=f2.city and facultys.district=f2.district;
+
+FACULTY_NAME         manager name
+-------------------- --------------------
+john                 aragorn
+jacob                bilbo
+
+SQL> select faculty_name, facultys.faculty_id, salary from works123, facultys where salary > (select avg(salary) from works123 S where works123.institution_name=S.institution_name) and facultys.faculty_id=works123.faculty_id;
+
+FACULTY_NAME         FACULTY_ID               SALARY
+-------------------- -------------------- ----------
+bob                  F2                        30000
+jacob                F4                        25000
+aragorn              F6                        26000
+gandalf              F8                        32000
+
+
+SQL> select institution_name, sum(salary) "Salary Paid" from Works123 group by institution_name having sum(salary) <= all (select sum(salary) from works123 group by institution_name);
+
+INSTITUTION_NAME                                   Salary Paid
+-------------------------------------------------- -----------
+gec                                                      37000
+
+SQL> select * from works123 where faculty_id in (select manager_id from managess) and institution_name='tki';
+
+FACULTY_ID           INSTITUTION_NAME
+-------------------- --------------------------------------------------
+    SALARY
+----------
+F6                   tki
+     26000
+
+
+SQL> update works123 set salary=salary*1.1 where faculty_id in (select manager_id from managess) and institution_name='tki';
+
+1 row updated.
+
+SQL> select * from works123 where faculty_id in (select manager_id from managess) and institution_name='tki';
+
+FACULTY_ID           INSTITUTION_NAME
+-------------------- --------------------------------------------------
+    SALARY
+----------
+F6                   tki
+     28600
+
+
+SQL> select institution_name, count(distinct faculty_id)"no of faculties" from works123 group by institution_name having count(distinct faculty_id) >= all(select count(distinct faculty_id) from works123 group by institution_name);
+
+INSTITUTION_NAME                                   no of faculties
+-------------------------------------------------- ---------------
+tki                                                              3
+
+SQL> select institution_name from works123 group by institution_name having avg(salary) > (select avg(salary) from works123 where institution_name='st thomas' group by institution_name);
+
+INSTITUTION_NAME
+--------------------------------------------------
+cet
+
+SQL>
+SQL> select faculty_name, salary from works123, facultys where salary > (select max(salary) from works123 where institution_name='st thomas' group by institution_name) and facultys.faculty_id=works123.faculty_id;
+
+FACULTY_NAME             SALARY
+-------------------- ----------
+gandalf                   32000
+
+SQL>
