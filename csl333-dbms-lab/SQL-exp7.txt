@@ -1,0 +1,414 @@
+SQL> create table faculty7(fcode int primary key, fname varchar(20));
+
+Table created.
+
+SQL> desc faculty7;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FCODE                                     NOT NULL NUMBER(38)
+ FNAME                                              VARCHAR2(20)
+
+SQL> create table subject7(subcode varchar(20) primary key, subname varchar(20), maxmark int, fcode int references faculty7(fcode));
+
+Table created.
+
+SQL> desc subject7;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SUBCODE                                   NOT NULL VARCHAR2(20)
+ SUBNAME                                            VARCHAR2(20)
+ MAXMARK                                            NUMBER(38)
+ FCODE                                              NUMBER(38)
+
+SQL> create table student7(studcode varchar(20) primary key, studname varchar(20), dob date, branch varchar(20), adate date, check(branch in ('cs', 'eee', 'ec', 'civil', 'me')));
+
+Table created.
+
+SQL> desc student7;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDCODE                                  NOT NULL VARCHAR2(20)
+ STUDNAME                                           VARCHAR2(20)
+ DOB                                                DATE
+ BRANCH                                             VARCHAR2(20)
+ ADATE                                              DATE
+
+SQL> create table marks7(studcode varchar(20) references student7(studcode), subcode varchar(20) references subject7(subcode), mark int, primary key(studcode, subcode));
+
+Table created.
+
+SQL> desc marks7;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDCODE                                  NOT NULL VARCHAR2(20)
+ SUBCODE                                   NOT NULL VARCHAR2(20)
+ MARK                                               NUMBER(38)
+
+SQL> insert into faculty7 values(1, 'aragorn');
+
+1 row created.
+
+SQL> insert into faculty7 values(2, 'gandalf');
+
+1 row created.
+
+SQL> insert into faculty7 values(3, 'legolas');
+
+1 row created.
+
+SQL> insert into faculty7 values(4, 'gimli');
+
+1 row created.
+
+SQL> insert into faculty7 values(5, 'elrond');
+
+1 row created.
+
+SQL> select * from faculty7;
+
+     FCODE FNAME
+---------- --------------------
+         1 aragorn
+         2 gandalf
+         3 legolas
+         4 gimli
+         5 elrond
+SQL> insert into subject7 values('cst301', 'flat', 100, 1);
+
+1 row created.
+
+SQL> insert into subject7 values('cst303', 'cn', 100, 2);
+
+1 row created.
+
+SQL> insert into subject7 values('cst305', 'ss', 100, 3);
+
+1 row created.
+
+SQL> insert into subject7 values('cst307', 'mpmc', 100, 4);
+
+1 row created.
+
+SQL> insert into subject7 values('cst309', 'mss', 100, 5);
+
+1 row created.
+
+SQL> insert into subject7 values('csl333', 'dbms-lab', 100, 1);
+
+1 row created.
+
+SQL> select * from subject7;
+
+SUBCODE              SUBNAME                 MAXMARK      FCODE
+-------------------- -------------------- ---------- ----------
+cst301               flat                        100          1
+cst303               cn                          100          2
+cst305               ss                          100          3
+cst307               mpmc                        100          4
+cst309               mss                         100          5
+csl333               dbms-lab                    100          1
+
+6 rows selected.
+
+SQL> insert into student7 values('tki27', 'hemanth', '03-Mar-2003', 'cs', '10-Nov-2021');
+
+1 row created.
+
+SQL> insert into student7 values('tki02', 'pipin', '23-Apr-2003', 'cs', '10-Nov-2021');
+
+1 row created.
+
+SQL> insert into student7 values('tki57', 'frodo', '31-Oct-2002', 'cs', '10-Nov-2021');
+
+1 row created.
+
+SQL> insert into student7 values('tki32', 'jeff', '12-Jun-2002', 'eee', '10-Nov-2021');
+
+1 row created.
+
+SQL> insert into student7 values('tki51', 'jerry', '04-Jan-2002', 'me', '10-Nov-2021');
+
+1 row created.
+
+SQL> select * from student7;
+
+STUDCODE             STUDNAME             DOB       BRANCH
+-------------------- -------------------- --------- --------------------
+ADATE
+---------
+tki27                hemanth              03-MAR-03 cs
+10-NOV-21
+
+tki02                pipin                23-APR-03 cs
+10-NOV-21
+
+tki57                frodo                31-OCT-02 cs
+10-NOV-21
+
+
+STUDCODE             STUDNAME             DOB       BRANCH
+-------------------- -------------------- --------- --------------------
+ADATE
+---------
+tki32                jeff                 12-JUN-02 eee
+10-NOV-21
+
+tki51                jerry                04-JAN-02 me
+10-NOV-21
+
+
+
+SQL> insert into marks7 values('tki27', 'cst301', 70);
+
+1 row created.
+
+SQL> insert into marks7 values('tki27', 'cst303', 50);
+
+1 row created.
+
+SQL> insert into marks7 values('tki27', 'cst305', 60);
+
+1 row created.
+
+SQL> insert into marks7 values('tki27', 'cst307', 67);
+
+1 row created.
+
+SQL> insert into marks7 values('tki27', 'cst309', 72);
+
+1 row created.
+
+SQL> insert into marks7 values('tki27', 'csl333', 42);
+
+1 row created.
+
+SQL> insert into marks7 values('tki02', 'cst301', 100);
+
+1 row created.
+
+SQL> insert into marks7 values('tki02', 'cst303', 90);
+
+1 row created.
+
+SQL> insert into marks7 values('tki02', 'cst305', 95);
+
+1 row created.
+
+SQL> insert into marks7 values('tki02', 'cst307', 89);
+
+1 row created.
+
+SQL> insert into marks7 values('tki02', 'cst309', 99);
+
+1 row created.
+
+SQL> insert into marks7 values('tki02', 'csl333', 98);
+
+1 row created.
+
+SQL> insert into marks7 values('tki57', 'cst301', 45);
+
+1 row created.
+
+SQL> insert into marks7 values('tki57', 'cst303', 64);
+
+1 row created.
+
+SQL> insert into marks7 values('tki57', 'cst305', 75);
+
+1 row created.
+
+SQL> insert into marks7 values('tki57', 'cst307', 90);
+
+1 row created.
+
+SQL> insert into marks7 values('tki57', 'cst309', 70);
+
+1 row created.
+
+SQL> insert into marks7 values('tki57', 'csl333', 57);
+
+1 row created.
+
+SQL> insert into marks7 values('tki32', 'cst301', 32);
+
+1 row created.
+
+SQL> insert into marks7 values('tki32', 'cst303', 20);
+
+1 row created.
+
+SQL> insert into marks7 values('tki32', 'cst305', 12);
+
+1 row created.
+
+SQL> insert into marks7 values('tki32', 'cst307', 35);
+
+1 row created.
+
+SQL> insert into marks7 values('tki32', 'cst309', 05);
+
+1 row created.
+
+SQL> insert into marks7 values('tki32', 'csl333', 42);
+
+1 row created.
+
+SQL> insert into marks7 values('tki51', 'cst301', 39);
+
+1 row created.
+
+SQL> insert into marks7 values('tki51', 'cst303', 69);
+
+1 row created.
+
+SQL> insert into marks7 values('tki51', 'cst305', 64);
+
+1 row created.
+
+SQL> insert into marks7 values('tki51', 'cst307', 94);
+
+1 row created.
+
+SQL> insert into marks7 values('tki51', 'cst309', 31);
+
+1 row created.
+
+SQL> insert into marks7 values('tki51', 'csl333', 100);
+
+1 row created.
+
+SQL> select * from marks7;
+
+STUDCODE             SUBCODE                    MARK
+-------------------- -------------------- ----------
+tki27                cst301                       70
+tki27                cst303                       50
+tki27                cst305                       60
+tki27                cst307                       67
+tki27                cst309                       72
+tki27                csl333                       42
+tki02                cst301                      100
+tki02                cst303                       90
+tki02                cst305                       95
+tki02                cst307                       89
+tki02                cst309                       99
+
+STUDCODE             SUBCODE                    MARK
+-------------------- -------------------- ----------
+tki02                csl333                       98
+tki57                cst301                       45
+tki57                cst303                       64
+tki57                cst305                       75
+tki57                cst307                       90
+tki57                cst309                       70
+tki57                csl333                       57
+tki32                cst301                       32
+tki32                cst303                       20
+tki32                cst305                       12
+tki32                cst307                       35
+
+STUDCODE             SUBCODE                    MARK
+-------------------- -------------------- ----------
+tki32                cst309                        5
+tki32                csl333                       42
+tki51                cst301                       39
+tki51                cst303                       69
+tki51                cst305                       64
+tki51                cst307                       94
+tki51                cst309                       31
+tki51                csl333                      100
+
+30 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select count(*) "No: of Faculties" from faculty7;
+
+No: of Faculties
+----------------
+               5
+
+SQL> select studname, sum(mark) "Total Mark" from marks7, student7 where student7.studcode=marks7.studcode group by studname;
+
+STUDNAME             Total Mark
+-------------------- ----------
+hemanth                     361
+pipin                       571
+jeff                        146
+frodo                       401
+jerry                       397
+
+SQL> select subname, round(avg(mark),2)"Average Mark" from subject7,marks7 where subject7.subcode=marks7.subcode group by subname;
+
+SUBNAME              Average Mark
+-------------------- ------------
+ss                           61.2
+mss                          55.4
+flat                         57.2
+cn                           58.6
+mpmc                           75
+dbms-lab                     67.8
+
+6 rows selected.
+
+SQL> select subject7.subname, count(student7.studname) "No: Of Students" from subject7, marks7, student7 where student7.studcode=marks7.studcode and marks7.mark<(40*maxmark)/100 and subject7.subcode=marks7.subcode group by subject7.subname having count(distinct(marks7.subcode))>=1;
+
+SUBNAME              No: Of Students
+-------------------- ---------------
+ss                                 1
+mss                                2
+flat                               2
+cn                                 1
+mpmc                               1
+
+SQL> select studname, subname, mark, maxmark, round((marks7.mark/maxmark)*100,2)"Percentage" from subject7, student7, marks7 where mark<(40*maxmark/100) and subject7.subcode=marks7.subcode and student7.studcode=marks7.studcode;
+
+STUDNAME             SUBNAME                    MARK    MAXMARK Percentage
+-------------------- -------------------- ---------- ---------- ----------
+jeff                 mss                           5        100          5
+jeff                 mpmc                         35        100         35
+jeff                 ss                           12        100         12
+jeff                 cn                           20        100         20
+jeff                 flat                         32        100         32
+jerry                mss                          31        100         31
+jerry                flat                         39        100         39
+
+7 rows selected.
+
+SQL> select studname, subname, round((marks7.mark/maxmark)*100,2)"Percentage" from subject7, student7, marks7 where mark<(40*maxmark/100) and subject7.subcode=marks7.subcode and student7.studcode=marks7.studcode;
+
+STUDNAME             SUBNAME              Percentage
+-------------------- -------------------- ----------
+jeff                 mss                           5
+jeff                 mpmc                         35
+jeff                 ss                           12
+jeff                 cn                           20
+jeff                 flat                         32
+jerry                mss                          31
+jerry                flat                         39
+
+7 rows selected.
+
+SQL>  select faculty7.fname,subject7.subname from faculty7,subject7 where faculty7.fcode=subject7.fcode;
+
+FNAME                SUBNAME
+-------------------- --------------------
+aragorn              flat
+gandalf              cn
+legolas              ss
+gimli                mpmc
+elrond               mss
+aragorn              dbms-lab
+
+6 rows selected.
+
+SQL> select fname from faculty7 where (select count(subcode) from subject7 where subject7.fcode=faculty7.fcode)>1 group by faculty7.fname;
+
+FNAME
+--------------------
+aragorn
+
+SQL>
