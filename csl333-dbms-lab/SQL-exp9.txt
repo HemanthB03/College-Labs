@@ -1,0 +1,203 @@
+SQL> create table class1(id int, name varchar(20), rollno int, phoneno int, housename varchar(20), district varchar(20));
+
+Table created.
+
+SQL> create table class2(id int, name varchar(20), rollno int, phoneno int, housename varchar(20), district varchar(20));
+
+Table created.
+
+SQL> desc class1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ ROLLNO                                             NUMBER(38)
+ PHONENO                                            NUMBER(38)
+ HOUSENAME                                          VARCHAR2(20)
+ DISTRICT                                           VARCHAR2(20)
+
+SQL> desc class2;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ NAME                                               VARCHAR2(20)
+ ROLLNO                                             NUMBER(38)
+ PHONENO                                            NUMBER(38)
+ HOUSENAME                                          VARCHAR2(20)
+ DISTRICT                                           VARCHAR2(20)
+
+SQL> insert into class1 values(1, 'john', 10, 1234567890, 'h1', 'd1');
+
+1 row created.
+
+SQL> insert into class2 values(1, 'john', 10, 1234567890, 'h1', 'd1');
+
+1 row created.
+
+SQL> insert into class1 values(2, 'jeff', 11, null, 'h2', 'd2');
+
+1 row created.
+
+SQL> insert into class2 values(2, 'jeff', 11, 1110002229, 'h2', null);
+
+1 row created.
+
+SQL> select * from class1;
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT
+--------------------
+         1 john                         10 1234567890 h1
+d1
+
+         2 jeff                         11            h2
+d2
+
+
+SQL> select * from class2;
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT
+--------------------
+         1 john                         10 1234567890 h1
+d1
+
+         2 jeff                         11 1110002229 h2
+
+
+
+SQL> (select * from class1) union (select * from class2);
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT
+--------------------
+         1 john                         10 1234567890 h1
+d1
+
+         2 jeff                         11 1110002229 h2
+
+
+         2 jeff                         11            h2
+d2
+
+
+SQL> (select * from class1) intersect (select * from class2);
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT
+--------------------
+         1 john                         10 1234567890 h1
+d1
+
+
+SQL> (select * from class1) minus (select * from class2);
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT
+--------------------
+         2 jeff                         11            h2
+d2
+
+
+SQL> select * from class1 inner join class2 on class1.id=class2.id;
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+         1 john                         10 1234567890 h1
+d1                            1 john                         10 1234567890
+h1                   d1
+
+         2 jeff                         11            h2
+d2                            2 jeff                         11 1110002229
+h2
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+
+
+SQL> select * from class1 left join class2 on class1.id=class2.id;
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+         1 john                         10 1234567890 h1
+d1                            1 john                         10 1234567890
+h1                   d1
+
+         2 jeff                         11            h2
+d2                            2 jeff                         11 1110002229
+h2
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+
+
+SQL> select * from class1 right join class2 on class1.id=class2.id;
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+         1 john                         10 1234567890 h1
+d1                            1 john                         10 1234567890
+h1                   d1
+
+         2 jeff                         11            h2
+d2                            2 jeff                         11 1110002229
+h2
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+
+
+SQL> select * from class1 full join class2 on class1.id=class2.id;
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+         1 john                         10 1234567890 h1
+d1                            1 john                         10 1234567890
+h1                   d1
+
+         2 jeff                         11            h2
+d2                            2 jeff                         11 1110002229
+h2
+
+        ID NAME                     ROLLNO    PHONENO HOUSENAME
+---------- -------------------- ---------- ---------- --------------------
+DISTRICT                     ID NAME                     ROLLNO    PHONENO
+-------------------- ---------- -------------------- ---------- ----------
+HOUSENAME            DISTRICT
+-------------------- --------------------
+
+
+SQL>
