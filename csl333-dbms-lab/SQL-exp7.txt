@@ -12,318 +12,106 @@ SQL> create table subject7(subcode varchar(20) primary key, subname varchar(20),
 
 Table created.
 
-SQL> desc subject7;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- SUBCODE                                   NOT NULL VARCHAR2(20)
- SUBNAME                                            VARCHAR2(20)
- MAXMARK                                            NUMBER(38)
- FCODE                                              NUMBER(38)
-
 SQL> create table student7(studcode varchar(20) primary key, studname varchar(20), dob date, branch varchar(20), adate date, check(branch in ('cs', 'eee', 'ec', 'civil', 'me')));
 
 Table created.
-
-SQL> desc student7;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- STUDCODE                                  NOT NULL VARCHAR2(20)
- STUDNAME                                           VARCHAR2(20)
- DOB                                                DATE
- BRANCH                                             VARCHAR2(20)
- ADATE                                              DATE
 
 SQL> create table marks7(studcode varchar(20) references student7(studcode), subcode varchar(20) references subject7(subcode), mark int, primary key(studcode, subcode));
 
 Table created.
 
-SQL> desc marks7;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- STUDCODE                                  NOT NULL VARCHAR2(20)
- SUBCODE                                   NOT NULL VARCHAR2(20)
- MARK                                               NUMBER(38)
 
 SQL> insert into faculty7 values(1, 'aragorn');
 
-1 row created.
-
 SQL> insert into faculty7 values(2, 'gandalf');
-
-1 row created.
 
 SQL> insert into faculty7 values(3, 'legolas');
 
-1 row created.
-
 SQL> insert into faculty7 values(4, 'gimli');
-
-1 row created.
 
 SQL> insert into faculty7 values(5, 'elrond');
 
-1 row created.
-
-SQL> select * from faculty7;
-
-     FCODE FNAME
----------- --------------------
-         1 aragorn
-         2 gandalf
-         3 legolas
-         4 gimli
-         5 elrond
 SQL> insert into subject7 values('cst301', 'flat', 100, 1);
-
-1 row created.
 
 SQL> insert into subject7 values('cst303', 'cn', 100, 2);
 
-1 row created.
-
 SQL> insert into subject7 values('cst305', 'ss', 100, 3);
-
-1 row created.
 
 SQL> insert into subject7 values('cst307', 'mpmc', 100, 4);
 
-1 row created.
-
 SQL> insert into subject7 values('cst309', 'mss', 100, 5);
-
-1 row created.
 
 SQL> insert into subject7 values('csl333', 'dbms-lab', 100, 1);
 
-1 row created.
-
-SQL> select * from subject7;
-
-SUBCODE              SUBNAME                 MAXMARK      FCODE
--------------------- -------------------- ---------- ----------
-cst301               flat                        100          1
-cst303               cn                          100          2
-cst305               ss                          100          3
-cst307               mpmc                        100          4
-cst309               mss                         100          5
-csl333               dbms-lab                    100          1
-
-6 rows selected.
-
 SQL> insert into student7 values('tki27', 'hemanth', '03-Mar-2003', 'cs', '10-Nov-2021');
-
-1 row created.
 
 SQL> insert into student7 values('tki02', 'pipin', '23-Apr-2003', 'cs', '10-Nov-2021');
 
-1 row created.
-
 SQL> insert into student7 values('tki57', 'frodo', '31-Oct-2002', 'cs', '10-Nov-2021');
-
-1 row created.
 
 SQL> insert into student7 values('tki32', 'jeff', '12-Jun-2002', 'eee', '10-Nov-2021');
 
-1 row created.
-
 SQL> insert into student7 values('tki51', 'jerry', '04-Jan-2002', 'me', '10-Nov-2021');
-
-1 row created.
-
-SQL> select * from student7;
-
-STUDCODE             STUDNAME             DOB       BRANCH
--------------------- -------------------- --------- --------------------
-ADATE
----------
-tki27                hemanth              03-MAR-03 cs
-10-NOV-21
-
-tki02                pipin                23-APR-03 cs
-10-NOV-21
-
-tki57                frodo                31-OCT-02 cs
-10-NOV-21
-
-
-STUDCODE             STUDNAME             DOB       BRANCH
--------------------- -------------------- --------- --------------------
-ADATE
----------
-tki32                jeff                 12-JUN-02 eee
-10-NOV-21
-
-tki51                jerry                04-JAN-02 me
-10-NOV-21
-
-
 
 SQL> insert into marks7 values('tki27', 'cst301', 70);
 
-1 row created.
-
 SQL> insert into marks7 values('tki27', 'cst303', 50);
-
-1 row created.
 
 SQL> insert into marks7 values('tki27', 'cst305', 60);
 
-1 row created.
-
 SQL> insert into marks7 values('tki27', 'cst307', 67);
-
-1 row created.
 
 SQL> insert into marks7 values('tki27', 'cst309', 72);
 
-1 row created.
-
 SQL> insert into marks7 values('tki27', 'csl333', 42);
-
-1 row created.
 
 SQL> insert into marks7 values('tki02', 'cst301', 100);
 
-1 row created.
-
 SQL> insert into marks7 values('tki02', 'cst303', 90);
-
-1 row created.
 
 SQL> insert into marks7 values('tki02', 'cst305', 95);
 
-1 row created.
-
 SQL> insert into marks7 values('tki02', 'cst307', 89);
-
-1 row created.
 
 SQL> insert into marks7 values('tki02', 'cst309', 99);
 
-1 row created.
-
 SQL> insert into marks7 values('tki02', 'csl333', 98);
-
-1 row created.
 
 SQL> insert into marks7 values('tki57', 'cst301', 45);
 
-1 row created.
-
 SQL> insert into marks7 values('tki57', 'cst303', 64);
-
-1 row created.
 
 SQL> insert into marks7 values('tki57', 'cst305', 75);
 
-1 row created.
-
 SQL> insert into marks7 values('tki57', 'cst307', 90);
-
-1 row created.
 
 SQL> insert into marks7 values('tki57', 'cst309', 70);
 
-1 row created.
-
 SQL> insert into marks7 values('tki57', 'csl333', 57);
-
-1 row created.
 
 SQL> insert into marks7 values('tki32', 'cst301', 32);
 
-1 row created.
-
 SQL> insert into marks7 values('tki32', 'cst303', 20);
-
-1 row created.
 
 SQL> insert into marks7 values('tki32', 'cst305', 12);
 
-1 row created.
-
 SQL> insert into marks7 values('tki32', 'cst307', 35);
-
-1 row created.
 
 SQL> insert into marks7 values('tki32', 'cst309', 05);
 
-1 row created.
-
 SQL> insert into marks7 values('tki32', 'csl333', 42);
-
-1 row created.
 
 SQL> insert into marks7 values('tki51', 'cst301', 39);
 
-1 row created.
-
 SQL> insert into marks7 values('tki51', 'cst303', 69);
-
-1 row created.
 
 SQL> insert into marks7 values('tki51', 'cst305', 64);
 
-1 row created.
-
 SQL> insert into marks7 values('tki51', 'cst307', 94);
-
-1 row created.
 
 SQL> insert into marks7 values('tki51', 'cst309', 31);
 
-1 row created.
-
 SQL> insert into marks7 values('tki51', 'csl333', 100);
-
-1 row created.
-
-SQL> select * from marks7;
-
-STUDCODE             SUBCODE                    MARK
--------------------- -------------------- ----------
-tki27                cst301                       70
-tki27                cst303                       50
-tki27                cst305                       60
-tki27                cst307                       67
-tki27                cst309                       72
-tki27                csl333                       42
-tki02                cst301                      100
-tki02                cst303                       90
-tki02                cst305                       95
-tki02                cst307                       89
-tki02                cst309                       99
-
-STUDCODE             SUBCODE                    MARK
--------------------- -------------------- ----------
-tki02                csl333                       98
-tki57                cst301                       45
-tki57                cst303                       64
-tki57                cst305                       75
-tki57                cst307                       90
-tki57                cst309                       70
-tki57                csl333                       57
-tki32                cst301                       32
-tki32                cst303                       20
-tki32                cst305                       12
-tki32                cst307                       35
-
-STUDCODE             SUBCODE                    MARK
--------------------- -------------------- ----------
-tki32                cst309                        5
-tki32                csl333                       42
-tki51                cst301                       39
-tki51                cst303                       69
-tki51                cst305                       64
-tki51                cst307                       94
-tki51                cst309                       31
-tki51                csl333                      100
-
-30 rows selected.
-
-SQL> commit;
-
-Commit complete.
 
 SQL> select count(*) "No: of Faculties" from faculty7;
 

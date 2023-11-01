@@ -8,83 +8,43 @@ Table created.
 
 SQL> INSERT INTO dept values(1, 'Administration', null, 'Boston');
 
-1 row created.
-
 SQL> INSERT INTO dept values(2, 'Marketing', null, 'Boston');
-
-1 row created.
 
 SQL> INSERT INTO dept values(3, 'Purchase', null, 'perryridge');
 
-1 row created.
-
 SQL> INSERT INTO dept values(4, 'Programming',null, 'Hudson');
-
-1 row created.
 
 SQL> INSERT INTO dept values(5, 'HR', null, 'Hudson');
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(1,'Steven', 'Marketing','06-jan-1995',24000, NULL,2);
-
-1 row created.
 
 SQL> INSERT INTO emp VALUES(2,'Neena', 'FI_ACCOUNT', '06-feb-1987',34000, NULL,1);
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(3,'Lex', 'FI_MGR', '06-jan-1980',240000, NULL,1);
-
-1 row created.
 
 SQL> INSERT INTO emp VALUES(4,'Alexander', 'Sa_Rep', '06-jun-1987',20000, NULL,4);
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(5,'Bruce', 'IT_PROG', '06-jul-1990',24000, NULL,4);
-
-1 row created.
 
 SQL> INSERT INTO emp VALUES(6,'David', 'IT_PROG', '06-sep-1991',22000, NULL,4);
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(7,'vipin', 'IT_PROG', '16-nov-1987',28000, NULL,4);
-
-1 row created.
 
 SQL> INSERT INTO emp VALUES(8,'Diana', 'Pur_Man', '26-jan-1987',24000, NULL,3);
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(9,'John', 'FI_ACCOUNT', '1-dec-1992', 24000, NULL,1);
-
-1 row created.
 
 SQL> INSERT INTO emp VALUES(10,'Ismael', 'CLERK', '29-mar-1994', 4000, NULL,3);
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(11,'Mathew', 'CLERK', '12-oct-1992', 46000, 200,3);
-
-1 row created.
 
 SQL> INSERT INTO emp VALUES(12,'Hayes', 'Marketing', '21-apr-1998',14000, 1000,2);
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(13,'sarun', 'Marketing', '18-may-1993',18000, NULL,2);
-
-1 row created.
 
 SQL> INSERT INTO emp VALUES(14,'Henin','FI_MGR', '06-aug-1980',240000, NULL,1);
 
-1 row created.
-
 SQL> INSERT INTO emp VALUES(15,'Greesh','Clerk', '06-aug-1980',240000, NULL,5);
-
-1 row created.
 
 SQL> Alter table dept add foreign key(manager_id) references emp(emp_no);
 
@@ -92,19 +52,11 @@ Table altered.
 
 SQL> Update dept set manager_id=2 where department_id=1;
 
-1 row updated.
-
 SQL> Update dept set manager_id=1 where department_id=2;
-
-1 row updated.
 
 SQL> Update dept set manager_id=8 where department_id=3;
 
-1 row updated.
-
 SQL> Update dept set manager_id=7 where department_id=4;
-
-1 row updated.
 
 SQL> SELECT emp_name, salary FROM emp WHERE salary NOT BETWEEN 5000 AND 35000;
 
@@ -116,8 +68,7 @@ Mathew          46000
 Henin          240000
 Greesh         240000
 
-SQL> SELECT emp_name, job, hiredate FROM emp WHERE hiredate BETWEEN '20-Feb-1990' AND '01-May-1998' ORDER BY hiredate
-  2  ;
+SQL> SELECT emp_name, job, hiredate FROM emp WHERE hiredate BETWEEN '20-Feb-1990' AND '01-May-1998' ORDER BY hiredate;
 
 EMP_NAME   JOB        HIREDATE
 ---------- ---------- ---------
@@ -132,8 +83,7 @@ Hayes      Marketing  21-APR-98
 
 8 rows selected.
 
-SQL> SELECT emp_name "Employee", salary "Monthly Salary" ,depno FROM emp
-  2  WHERE salary BETWEEN 5000 AND 30000 AND depno IN (2, 4);
+SQL> SELECT emp_name "Employee", salary "Monthly Salary" ,depno FROM emp WHERE salary BETWEEN 5000 AND 30000 AND depno IN (2, 4);
 
 Employee   Monthly Salary      DEPNO
 ---------- -------------- ----------
@@ -188,10 +138,7 @@ Sa_Rep               1
 
 8 rows selected.
 
-SQL> SELECT min(salary) "MINIMUM SALARY",manager_id, department_name FROM emp,dept where emp.depno=dept.department_id AND manager_id IS NOT NULL
-  2  GROUP BY manager_id, department_name HAVING MIN(salary) > 6000
-  3  ORDER BY "MINIMUM SALARY" DESC
-  4  ;
+SQL> SELECT min(salary) "MINIMUM SALARY",manager_id, department_name FROM emp,dept where emp.depno=dept.department_id AND manager_id IS NOT NULL GROUP BY manager_id, department_name HAVING MIN(salary) > 6000 3  ORDER BY "MINIMUM SALARY" DESC;
 
 MINIMUM SALARY MANAGER_ID DEPARTMENT_NAME
 -------------- ---------- --------------------
