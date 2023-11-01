@@ -1,61 +1,35 @@
 SQL> CREATE TABLE dept(department_id int primary key, department_name   VARCHAR(20) NOT NULL , manager_id int, loc varchar(10));
-
 Table created.
 
 SQL> create table emp(EMP_no int Primary Key,Emp_Name Varchar(10),Job Varchar(10),Hiredate Date,Salary Float,Comm Float,Depno Int References Dept(Department_Id));
-
 Table created.
 
 SQL> INSERT INTO dept values(1, 'Administration', null, 'Boston');
-
 SQL> INSERT INTO dept values(2, 'Marketing', null, 'Boston');
-
 SQL> INSERT INTO dept values(3, 'Purchase', null, 'perryridge');
-
 SQL> INSERT INTO dept values(4, 'Programming',null, 'Hudson');
-
 SQL> INSERT INTO dept values(5, 'HR', null, 'Hudson');
-
 SQL> INSERT INTO emp VALUES(1,'Steven', 'Marketing','06-jan-1995',24000, NULL,2);
-
 SQL> INSERT INTO emp VALUES(2,'Neena', 'FI_ACCOUNT', '06-feb-1987',34000, NULL,1);
-
 SQL> INSERT INTO emp VALUES(3,'Lex', 'FI_MGR', '06-jan-1980',240000, NULL,1);
-
 SQL> INSERT INTO emp VALUES(4,'Alexander', 'Sa_Rep', '06-jun-1987',20000, NULL,4);
-
 SQL> INSERT INTO emp VALUES(5,'Bruce', 'IT_PROG', '06-jul-1990',24000, NULL,4);
-
 SQL> INSERT INTO emp VALUES(6,'David', 'IT_PROG', '06-sep-1991',22000, NULL,4);
-
 SQL> INSERT INTO emp VALUES(7,'vipin', 'IT_PROG', '16-nov-1987',28000, NULL,4);
-
 SQL> INSERT INTO emp VALUES(8,'Diana', 'Pur_Man', '26-jan-1987',24000, NULL,3);
-
 SQL> INSERT INTO emp VALUES(9,'John', 'FI_ACCOUNT', '1-dec-1992', 24000, NULL,1);
-
 SQL> INSERT INTO emp VALUES(10,'Ismael', 'CLERK', '29-mar-1994', 4000, NULL,3);
-
 SQL> INSERT INTO emp VALUES(11,'Mathew', 'CLERK', '12-oct-1992', 46000, 200,3);
-
 SQL> INSERT INTO emp VALUES(12,'Hayes', 'Marketing', '21-apr-1998',14000, 1000,2);
-
 SQL> INSERT INTO emp VALUES(13,'sarun', 'Marketing', '18-may-1993',18000, NULL,2);
-
 SQL> INSERT INTO emp VALUES(14,'Henin','FI_MGR', '06-aug-1980',240000, NULL,1);
-
 SQL> INSERT INTO emp VALUES(15,'Greesh','Clerk', '06-aug-1980',240000, NULL,5);
 
 SQL> Alter table dept add foreign key(manager_id) references emp(emp_no);
-
 Table altered.
-
 SQL> Update dept set manager_id=2 where department_id=1;
-
 SQL> Update dept set manager_id=1 where department_id=2;
-
 SQL> Update dept set manager_id=8 where department_id=3;
-
 SQL> Update dept set manager_id=7 where department_id=4;
 
 SQL> SELECT emp_name, salary FROM emp WHERE salary NOT BETWEEN 5000 AND 35000;

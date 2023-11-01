@@ -9,108 +9,59 @@ SQL> desc faculty7;
  FNAME                                              VARCHAR2(20)
 
 SQL> create table subject7(subcode varchar(20) primary key, subname varchar(20), maxmark int, fcode int references faculty7(fcode));
-
 Table created.
 
 SQL> create table student7(studcode varchar(20) primary key, studname varchar(20), dob date, branch varchar(20), adate date, check(branch in ('cs', 'eee', 'ec', 'civil', 'me')));
-
 Table created.
 
 SQL> create table marks7(studcode varchar(20) references student7(studcode), subcode varchar(20) references subject7(subcode), mark int, primary key(studcode, subcode));
-
 Table created.
 
-
 SQL> insert into faculty7 values(1, 'aragorn');
-
 SQL> insert into faculty7 values(2, 'gandalf');
-
 SQL> insert into faculty7 values(3, 'legolas');
-
 SQL> insert into faculty7 values(4, 'gimli');
-
 SQL> insert into faculty7 values(5, 'elrond');
-
 SQL> insert into subject7 values('cst301', 'flat', 100, 1);
-
 SQL> insert into subject7 values('cst303', 'cn', 100, 2);
-
 SQL> insert into subject7 values('cst305', 'ss', 100, 3);
-
 SQL> insert into subject7 values('cst307', 'mpmc', 100, 4);
-
 SQL> insert into subject7 values('cst309', 'mss', 100, 5);
-
 SQL> insert into subject7 values('csl333', 'dbms-lab', 100, 1);
-
 SQL> insert into student7 values('tki27', 'hemanth', '03-Mar-2003', 'cs', '10-Nov-2021');
-
 SQL> insert into student7 values('tki02', 'pipin', '23-Apr-2003', 'cs', '10-Nov-2021');
-
 SQL> insert into student7 values('tki57', 'frodo', '31-Oct-2002', 'cs', '10-Nov-2021');
-
 SQL> insert into student7 values('tki32', 'jeff', '12-Jun-2002', 'eee', '10-Nov-2021');
-
 SQL> insert into student7 values('tki51', 'jerry', '04-Jan-2002', 'me', '10-Nov-2021');
-
 SQL> insert into marks7 values('tki27', 'cst301', 70);
-
 SQL> insert into marks7 values('tki27', 'cst303', 50);
-
 SQL> insert into marks7 values('tki27', 'cst305', 60);
-
 SQL> insert into marks7 values('tki27', 'cst307', 67);
-
 SQL> insert into marks7 values('tki27', 'cst309', 72);
-
 SQL> insert into marks7 values('tki27', 'csl333', 42);
-
 SQL> insert into marks7 values('tki02', 'cst301', 100);
-
 SQL> insert into marks7 values('tki02', 'cst303', 90);
-
 SQL> insert into marks7 values('tki02', 'cst305', 95);
-
 SQL> insert into marks7 values('tki02', 'cst307', 89);
-
 SQL> insert into marks7 values('tki02', 'cst309', 99);
-
 SQL> insert into marks7 values('tki02', 'csl333', 98);
-
 SQL> insert into marks7 values('tki57', 'cst301', 45);
-
 SQL> insert into marks7 values('tki57', 'cst303', 64);
-
 SQL> insert into marks7 values('tki57', 'cst305', 75);
-
 SQL> insert into marks7 values('tki57', 'cst307', 90);
-
 SQL> insert into marks7 values('tki57', 'cst309', 70);
-
 SQL> insert into marks7 values('tki57', 'csl333', 57);
-
 SQL> insert into marks7 values('tki32', 'cst301', 32);
-
 SQL> insert into marks7 values('tki32', 'cst303', 20);
-
 SQL> insert into marks7 values('tki32', 'cst305', 12);
-
 SQL> insert into marks7 values('tki32', 'cst307', 35);
-
 SQL> insert into marks7 values('tki32', 'cst309', 05);
-
 SQL> insert into marks7 values('tki32', 'csl333', 42);
-
 SQL> insert into marks7 values('tki51', 'cst301', 39);
-
 SQL> insert into marks7 values('tki51', 'cst303', 69);
-
 SQL> insert into marks7 values('tki51', 'cst305', 64);
-
 SQL> insert into marks7 values('tki51', 'cst307', 94);
-
 SQL> insert into marks7 values('tki51', 'cst309', 31);
-
 SQL> insert into marks7 values('tki51', 'csl333', 100);
 
 SQL> select count(*) "No: of Faculties" from faculty7;

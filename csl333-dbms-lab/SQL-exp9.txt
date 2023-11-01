@@ -1,17 +1,12 @@
 SQL> create table class1(id int, name varchar(20), rollno int, phoneno int, housename varchar(20), district varchar(20));
-
 Table created.
 
 SQL> create table class2(id int, name varchar(20), rollno int, phoneno int, housename varchar(20), district varchar(20));
-
 Table created.
 
 SQL> insert into class1 values(1, 'john', 10, 1234567890, 'h1', 'd1');
-
 SQL> insert into class2 values(1, 'john', 10, 1234567890, 'h1', 'd1');
-
 SQL> insert into class1 values(2, 'jeff', 11, null, 'h2', 'd2');
-
 SQL> insert into class2 values(2, 'jeff', 11, 1110002229, 'h2', null);
 
 SQL> select * from class1;
