@@ -102,7 +102,9 @@ int main(void) {
       printf("^");
       len1 = strlen(obj1);
 
-      for (k = 0; k < len1; k++) printf("%d", obj1[k]);
+      for (k = 0; k < len1; k++) {
+        printf("%d", obj1[k]);
+      }
     } else if (strcmp(obj2, "#") == 0) {
       printf("^");
       printf("%s", obj1);
