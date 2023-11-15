@@ -77,8 +77,7 @@ EMP_NAME   HIREDATE
 ---------- ---------
 Ismael     29-MAR-94
 
-SQL> SELECT emp_name, salary, comm FROM emp WHERE comm IS NOT NULL
-  2  ORDER BY salary DESC, comm DESC;
+SQL> SELECT emp_name, salary, comm FROM emp WHERE comm IS NOT NULL ORDER BY salary DESC, comm DESC;
 
 EMP_NAME       SALARY       COMM
 ---------- ---------- ----------
@@ -112,7 +111,7 @@ Sa_Rep               1
 
 8 rows selected.
 
-SQL> SELECT min(salary) "MINIMUM SALARY",manager_id, department_name FROM emp,dept where emp.depno=dept.department_id AND manager_id IS NOT NULL GROUP BY manager_id, department_name HAVING MIN(salary) > 6000 3  ORDER BY "MINIMUM SALARY" DESC;
+SQL> SELECT min(salary) "MINIMUM SALARY",manager_id, department_name FROM emp,dept where emp.depno=dept.department_id AND manager_id IS NOT NULL GROUP BY manager_id, department_name HAVING MIN(salary) > 6000 ORDER BY "MINIMUM SALARY" DESC;
 
 MINIMUM SALARY MANAGER_ID DEPARTMENT_NAME
 -------------- ---------- --------------------
