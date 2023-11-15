@@ -130,5 +130,12 @@ int main(void) {
   }
 
   printf("\nE^00%d", startAddr);
+
+  fclose(inFile);
+  fclose(optabFile);
+  fclose(symtabFile);
+  fclose(symtab1File);
+  fclose(outFile);
+  
   return 0;
 }
