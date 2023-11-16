@@ -117,7 +117,7 @@ int main(void) {
   fscanf(outFile, "%s%s", obj1, obj2);
 
   while (!feof(outFile)) {
-    if (strcmp(obj2, "0000") != 0) {
+    if (strcmp(obj2, "000") != 0) {
       if (strcmp(obj2, "-") != 0) {
         if (strcmp(obj2, "#") != 0) {
           printf("\n");
@@ -129,7 +129,7 @@ int main(void) {
     fscanf(outFile, "%s%s", obj1, obj2);
   }
 
-  printf("\nE^00%d", startAddr);
+  printf("\nE^00%d\n", startAddr);
 
   fclose(inFile);
   fclose(optabFile);
