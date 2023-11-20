@@ -1,0 +1,13 @@
+Enter value for no: 1
+old   6:     select rollno, name, (mark1+mark2+mark3) into no, name, total from student13 where rollno=&no;
+new   6:     select rollno, name, (mark1+mark2+mark3) into no, name, total from student13 where rollno=1;
+--------------------
+Student Name: hemanth
+Roll No: 1
+Total Marks: 100
+Grade: Third Class
+--------------------
+
+PL/SQL procedure successfully completed.
+
+SQL>
