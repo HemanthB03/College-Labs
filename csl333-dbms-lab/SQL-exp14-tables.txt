@@ -1,0 +1,10 @@
+SQL> set serveroutput on
+SQL> create table employee(eno int primary key, ename varchar(20), deptno int, salary int);
+
+SQL> insert into employee values(1, 'hemanth', 1, 4166);
+SQL> insert into employee values(2, 'atif', 2, 10000);
+SQL> insert into employee values(3, 'crispin', 2, 14166);
+SQL> insert into employee values(4, 'sufiyan', 3, 20833);
+SQL> insert into employee values(5, 'viswanth', 3, 20533);
+
+SQL> create table tax(eno int, deptno int, tax_amount int);

@@ -1,0 +1,76 @@
+Procedure created.
+
+Enter value for no: 1
+old   7:     no:=&no;
+new   7:     no:=1;
+Emp No:1
+Dept No:1
+Tax:0
+
+PL/SQL procedure successfully completed.
+
+Procedure created.
+
+Enter value for no: 2
+old   7:     no:=&no;
+new   7:     no:=2;
+Emp No:2
+Dept No:2
+Tax:2000
+
+PL/SQL procedure successfully completed.
+
+Procedure created.
+
+Enter value for no: 3
+old   7:     no:=&no;
+new   7:     no:=3;
+Emp No:3
+Dept No:2
+Tax:13998
+
+PL/SQL procedure successfully completed.
+
+Procedure created.
+
+Enter value for no: 4
+old   7:     no:=&no;
+new   7:     no:=4;
+Emp No:4
+Dept No:3
+Tax:44999
+
+PL/SQL procedure successfully completed.
+
+Procedure created.
+
+Enter value for no: 5
+old   7:     no:=&no;
+new   7:     no:=5;
+Emp No:5
+Dept No:3
+Tax:43919
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from employee;
+
+       ENO ENAME                    DEPTNO     SALARY
+---------- -------------------- ---------- ----------
+         1 hemanth                       1       4166
+         2 atif                          2      10000
+         3 crispin                       2      14166
+         4 sufiyan                       3      20833
+         5 viswanth                      3      20533
+
+SQL> select * from tax;
+
+       ENO     DEPTNO TAX_AMOUNT
+---------- ---------- ----------
+         1          1          0
+         2          2       2000
+         3          2      13998
+         4          3      44999
+         5          3      43919
+
+SQL>
