@@ -1,0 +1,8 @@
+Enter value for n: 12345
+old   6:        n := &n;
+new   6:        n := 12345;
+sum of digits = 15
+
+PL/SQL procedure successfully completed.
+
+SQL>

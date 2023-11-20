@@ -1,0 +1,307 @@
+SQL> create table employee27(employee_name varchar(20), employee_id int, hra_no int, total_salary int, department varchar(20), address varchar(30));
+
+Table created.
+
+SQL> desc employee27;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_NAME                                      VARCHAR2(20)
+ EMPLOYEE_ID                                        NUMBER(38)
+ HRA_NO                                             NUMBER(38)
+ TOTAL_SALARY                                       NUMBER(38)
+ DEPARTMENT                                         VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(30)
+
+SQL> insert into employee27('frodo', 1, 123, 20000, 'cs', 'shire');
+insert into employee27('frodo', 1, 123, 20000, 'cs', 'shire')
+                       *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> insert into employee27 values('frodo', 1, 123, 20000, 'cs', 'shire');
+
+1 row created.
+
+SQL> insert into employee27 values('aragorn', 2, 124, 80000, 'eee', 'gondor');
+
+1 row created.
+
+SQL> insert into employee27 values('sauron', 3, 124, 5000, 'me', 'mordor');
+
+1 row created.
+
+SQL> insert into employee27 values('saruman', 4, 126, 7000, 'civil', 'isengard');
+
+1 row created.
+
+SQL> insert into employee27 values('gandalf', 5, 128, 50000, 'ec', 'valinor');
+
+1 row created.
+
+SQL> insert into employee27 values('pipin', 6, 228, 30000, 'cs', 'fermy');
+
+1 row created.
+
+SQL> insert into employee27 values('bob', 7, 248, 9000, 'ft', 'fthouse');
+
+1 row created.
+
+SQL> insert into employee27 values('jimmy', 8, 248, 40000, 'bm', 'bmhouse');
+
+1 row created.
+
+SQL> insert into employee27 values('stevie', 9, 5248, 2000, 'cs', 'cshouse');
+
+1 row created.
+
+SQL> insert into employee27 values('jeffry', 10, 7648, 32000, 'ae', 'lolhouse');
+
+1 row created.
+
+SQL> select * from employee27;
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+frodo                          1        123        20000 cs
+shire
+
+aragorn                        2        124        80000 eee
+gondor
+
+sauron                         3        124         5000 me
+mordor
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+saruman                        4        126         7000 civil
+isengard
+
+gandalf                        5        128        50000 ec
+valinor
+
+pipin                          6        228        30000 cs
+fermy
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+bob                            7        248         9000 ft
+fthouse
+
+jimmy                          8        248        40000 bm
+bmhouse
+
+stevie                         9       5248         2000 cs
+cshouse
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+jeffry                        10       7648        32000 ae
+lolhouse
+
+
+10 rows selected.
+
+SQL> update table employee27 set hra_no=127 where employee_id=3;
+update table employee27 set hra_no=127 where employee_id=3
+       *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> update employee27 set hra_no=127 where employee_id=3;
+
+1 row updated.
+
+SQL> select * from employee27;
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+frodo                          1        123        20000 cs
+shire
+
+aragorn                        2        124        80000 eee
+gondor
+
+sauron                         3        127         5000 me
+mordor
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+saruman                        4        126         7000 civil
+isengard
+
+gandalf                        5        128        50000 ec
+valinor
+
+pipin                          6        228        30000 cs
+fermy
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+bob                            7        248         9000 ft
+fthouse
+
+jimmy                          8        248        40000 bm
+bmhouse
+
+stevie                         9       5248         2000 cs
+cshouse
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+jeffry                        10       7648        32000 ae
+lolhouse
+
+
+10 rows selected.
+
+SQL> update table employee27 set hra_no=9127 where employee_id=8;
+update table employee27 set hra_no=9127 where employee_id=8
+       *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> update employee27 set hra_no=9127 where employee_id=8;
+
+1 row updated.
+
+SQL>
+SQL>
+SQL> select * from employee27;
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+frodo                          1        123        20000 cs
+shire
+
+aragorn                        2        124        80000 eee
+gondor
+
+sauron                         3        127         5000 me
+mordor
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+saruman                        4        126         7000 civil
+isengard
+
+gandalf                        5        128        50000 ec
+valinor
+
+pipin                          6        228        30000 cs
+fermy
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+bob                            7        248         9000 ft
+fthouse
+
+jimmy                          8       9127        40000 bm
+bmhouse
+
+stevie                         9       5248         2000 cs
+cshouse
+
+
+EMPLOYEE_NAME        EMPLOYEE_ID     HRA_NO TOTAL_SALARY DEPARTMENT
+-------------------- ----------- ---------- ------------ --------------------
+ADDRESS
+------------------------------
+jeffry                        10       7648        32000 ae
+lolhouse
+
+
+10 rows selected.
+
+SQL> create view emp as select employee_name, salary from employee27 where salary>10000;
+create view emp as select employee_name, salary from employee27 where salary>10000
+                                                                      *
+ERROR at line 1:
+ORA-00904: "SALARY": invalid identifier
+
+
+SQL> create view emp as select employee_name, total_salary from employee27 where salary>10000;
+create view emp as select employee_name, total_salary from employee27 where salary>10000
+                                                                            *
+ERROR at line 1:
+ORA-00904: "SALARY": invalid identifier
+
+
+SQL> create view emp as select employee_name, total_salary from employee27 where total_salary>10000;
+create view emp as select employee_name, total_salary from employee27 where total_salary>10000
+                                                           *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create view emp27 as select employee_name, total_salary from employee27 where total_salary>10000;
+
+View created.
+
+SQL> select * from emp27;
+
+EMPLOYEE_NAME        TOTAL_SALARY
+-------------------- ------------
+frodo                       20000
+aragorn                     80000
+gandalf                     50000
+pipin                       30000
+jimmy                       40000
+jeffry                      32000
+
+6 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> create view emp272 as select address, employee_name, total_salary from employee27 where total_salary>10000;
+
+View created.
+
+SQL> select * from emp272;
+
+ADDRESS                        EMPLOYEE_NAME        TOTAL_SALARY
+------------------------------ -------------------- ------------
+shire                          frodo                       20000
+gondor                         aragorn                     80000
+valinor                        gandalf                     50000
+fermy                          pipin                       30000
+bmhouse                        jimmy                       40000
+lolhouse                       jeffry                      32000
+
+6 rows selected.
+
+SQL>

@@ -1,0 +1,14 @@
+Enter value for a: 5
+old   2: a integer:=&a;
+new   2: a integer:=5;
+Enter value for b: 7
+old   3: b integer:=&b;
+new   3: b integer:=7;
+Enter value for c: 2
+old   4: c integer:=&c;
+new   4: c integer:=2;
+largest is 7
+
+PL/SQL procedure successfully completed.
+
+SQL>

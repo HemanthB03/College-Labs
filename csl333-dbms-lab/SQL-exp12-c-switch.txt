@@ -1,0 +1,8 @@
+Enter value for grade: 'C'
+old   2: grade char(1):=&grade;
+new   2: grade char(1):='C';
+Well Done
+
+PL/SQL procedure successfully completed.
+
+SQL>
