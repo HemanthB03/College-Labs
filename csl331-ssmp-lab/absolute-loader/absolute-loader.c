@@ -8,7 +8,7 @@ char prog_name[10], record[100], locn[4], instr[2];
 
 int i, j, k = 0, flag = 0, rec_len, start, ind, new_loc;
 
-int main() {
+int main(void) {
   printf("\nEnter the name of the program to be loaded: ");
   scanf("%s", prog_name);
 
