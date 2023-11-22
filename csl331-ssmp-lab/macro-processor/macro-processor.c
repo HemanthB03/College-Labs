@@ -66,4 +66,6 @@ int main(void) {
   fclose(defTab);
   fclose(argTab);
   fclose(opMacro);
+
+  return 0;
 }
