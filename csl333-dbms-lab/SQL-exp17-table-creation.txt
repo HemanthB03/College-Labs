@@ -1,0 +1,20 @@
+SQL> set serveroutput on
+SQL> create table customer(id int, name varchar(20), age int, address varchar(20), salary int);
+
+SQL> insert into customer values(1, 'hemanth', 20, 'addr1', 1000);
+SQL> insert into customer values(2, 'atif', 19, 'addr2', 2000);
+SQL> insert into customer values(3, 'crispin', 20, 'addr3', 3000);
+SQL> insert into customer values(4, 'sufiyan', 20, 'addr4', 4000);
+SQL> insert into customer values(5, 'gowtham', 21, 'addr5', 5000);
+
+SQL> select * from customer;
+
+        ID NAME                        AGE ADDRESS                  SALARY
+---------- -------------------- ---------- -------------------- ----------
+         1 hemanth                      20 addr1                      1000
+         2 atif                         19 addr2                      2000
+         3 crispin                      20 addr3                      3000
+         4 sufiyan                      20 addr4                      4000
+         5 gowtham                      21 addr5                      5000
+
+SQL>

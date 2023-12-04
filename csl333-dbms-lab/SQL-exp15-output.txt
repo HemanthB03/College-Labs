@@ -1,0 +1,13 @@
+Procedure created.
+
+Enter value for a: 5
+old   2: a integer:=&a;
+new   2: a integer:=5;
+Enter value for b: 6
+old   3: b integer:=&b;
+new   3: b integer:=6;
+The sum is 11
+
+PL/SQL procedure successfully completed.
+
+SQL>

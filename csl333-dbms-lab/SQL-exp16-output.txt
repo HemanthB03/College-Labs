@@ -1,0 +1,13 @@
+Function created.
+
+Enter value for a: 6
+old   2: a integer:=&a;
+new   2: a integer:=6;
+Enter value for b: 5
+old   3: b integer:=&b;
+new   3: b integer:=5;
+The sum is 11
+
+PL/SQL procedure successfully completed.
+
+SQL>

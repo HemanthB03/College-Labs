@@ -1,0 +1,15 @@
+5 customers selected
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from customer;
+
+        ID NAME                        AGE ADDRESS                  SALARY
+---------- -------------------- ---------- -------------------- ----------
+         1 hemanth                      20 addr1                      1500
+         2 atif                         19 addr2                      2500
+         3 crispin                      20 addr3                      3500
+         4 sufiyan                      20 addr4                      4500
+         5 gowtham                      21 addr5                      5500
+
+SQL>
