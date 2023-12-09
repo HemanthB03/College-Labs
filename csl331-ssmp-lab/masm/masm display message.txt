@@ -1,0 +1,19 @@
+assume cs:code, ds:data
+data segment
+ msg db 0ah,0dh,"This is my first 8086 program$"
+ msg1 db 0ah,0dh,"Hi Welcome$"
+data ends
+code segment
+ start:
+ mov ax,data
+ mov ds,ax
+ mov ah,09h
+ lea dx,msg
+ int 21h
+ mov ah,09h
+ lea dx,msg1
+ int 21h
+ mov ah,4ch
+ int 21h
+code ends
+end start
