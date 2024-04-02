@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 void shortest_path(int n, int cost[n][n], int src) {
   int dist[n];
@@ -65,7 +65,7 @@ void shortest_path(int n, int cost[n][n], int src) {
   }
 }
 
-int main() {
+int main(void) {
   int n;
   int i;
   int j;

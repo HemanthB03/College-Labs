@@ -2,6 +2,9 @@
 	"editor.insertSpaces": true,
 	"editor.tabSize": 2,
 	"files.associations": {
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"ftp-server": "c",
+		"stdio.h": "c",
+		"stdlib.h": "c"
 	}
 }
